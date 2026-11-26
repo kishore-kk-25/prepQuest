@@ -1,0 +1,30 @@
+// Operating Systems question bank. Every answer is hand-checked.
+export default {
+  id: 'os',
+  name: 'Operating Systems',
+  badge: 'OS',
+  color: '#0f8a6a',
+  blurb: 'Processes, threads, scheduling, deadlocks and memory management.',
+  practiceProvider: 'geeksforgeeks',
+  resources: [
+    { title: 'OSTEP: free operating systems textbook', url: 'https://pages.cs.wisc.edu/~remzi/OSTEP/', kind: 'Book' },
+    { title: 'NPTEL courses', url: 'https://nptel.ac.in/', kind: 'Course' },
+  ],
+  questions: [
+    { section: 'Processes & scheduling', topic: 'Starvation', q: 'Which CPU scheduling algorithm can cause starvation of long jobs?', options: ['First Come First Served', 'Round Robin', 'Shortest Job First', 'None of these'], answer: 2, explain: 'SJF keeps picking short jobs; if short jobs keep arriving, a long job may never run. Ageing fixes this.' },
+    { section: 'Sync & deadlocks', topic: 'Deadlock conditions', q: 'Which is NOT one of the four necessary conditions for deadlock?', options: ['Mutual exclusion', 'Hold and wait', 'Circular wait', 'Preemption'], answer: 3, explain: 'The conditions are mutual exclusion, hold and wait, NO preemption, and circular wait. Allowing preemption breaks deadlock.' },
+    { section: 'Processes & scheduling', topic: 'Threads', q: 'Threads of the same process share:', options: ['The address space (code, data, heap)', 'Their stacks', 'Their registers', 'Their program counters'], answer: 0, explain: 'Threads share code, data and heap, but each has its own stack, registers and program counter.' },
+    { section: 'Memory', topic: 'Thrashing', q: 'Thrashing happens when:', options: ['The CPU overheats', 'A disk is full', 'Two processes share memory', 'The system spends more time paging than executing'], answer: 3, explain: 'With too little memory per process, page faults pile up and the CPU mostly waits on swapping pages.' },
+    { section: 'Sync & deadlocks', topic: 'Banker\'s algorithm', q: 'The Banker\'s algorithm is used for deadlock:', options: ['Prevention', 'Avoidance', 'Detection', 'Recovery'], answer: 1, explain: 'It grants a request only if the system stays in a safe state, so deadlock is avoided ahead of time.' },
+    { section: 'Processes & scheduling', topic: 'Round Robin', q: 'Round Robin scheduling is defined by:', options: ['Process priorities', 'Shortest burst first', 'A fixed time quantum per turn', 'Arrival order only'], answer: 2, explain: 'Each process runs for one time slice (quantum), then goes to the back of the ready queue.' },
+    { section: 'Sync & deadlocks', topic: 'Semaphores', q: 'A semaphore is mainly used for:', options: ['Process synchronisation', 'Memory allocation', 'File compression', 'Disk scheduling'], answer: 0, explain: 'wait (P) and signal (V) on a semaphore control access to shared resources between processes or threads.' },
+    { section: 'Memory', topic: 'Page faults', q: 'A page fault occurs when:', options: ['A page is corrupted', 'The requested page is not in main memory', 'Memory is full', 'Two pages have the same address'], answer: 1, explain: 'The OS must load the missing page from disk into a frame, then restart the instruction.' },
+    { section: 'Memory', topic: 'Virtual memory', q: 'Virtual memory mainly allows:', options: ['Faster CPUs', 'More disk space', 'Programs larger than physical RAM to run', 'Unlimited processes'], answer: 2, explain: 'Only the pages in use need to be in RAM; the rest live on disk and are paged in when needed.' },
+    { section: 'Processes & scheduling', topic: 'Context switching', q: 'A context switch is:', options: ['Changing the user\'s screen', 'Switching from kernel to BIOS', 'Restarting the OS', 'Saving one process\'s state and loading another\'s'], answer: 3, explain: 'The OS saves registers, program counter and so on for the current process and restores them for the next.' },
+    { section: 'Memory', topic: 'Page replacement', q: 'Belady\'s anomaly (more frames causing more page faults) can occur with:', options: ['LRU', 'Optimal', 'FIFO', 'LFU'], answer: 2, explain: 'FIFO is not a stack algorithm, so adding frames can increase faults. LRU and Optimal never show the anomaly.' },
+    { section: 'Memory', topic: 'Fragmentation', q: 'Paging can suffer from:', options: ['External fragmentation', 'Internal fragmentation', 'Both equally', 'Neither'], answer: 1, explain: 'Pages are fixed size, so the last page of a process may be partly empty: internal fragmentation. There is no external fragmentation.' },
+    { section: 'Processes & scheduling', topic: 'System calls', q: 'A system call:', options: ['Requests a service from the OS kernel', 'Calls another user program', 'Is only a hardware interrupt', 'Compiles code'], answer: 0, explain: 'Programs use system calls (read, write, fork…) to switch into kernel mode and ask the OS to do privileged work.' },
+    { section: 'Processes & scheduling', topic: 'Zombie processes', q: 'A zombie process is one that:', options: ['Uses 100% CPU', 'Has finished, but its parent has not yet read its exit status', 'Has lost its parent and been adopted', 'Is waiting for I/O'], answer: 1, explain: 'Its entry stays in the process table until the parent calls wait(). An orphan is one whose parent died.' },
+    { section: 'Sync & deadlocks', topic: 'Critical section', q: 'Which is NOT a requirement of a correct critical-section solution?', options: ['Mutual exclusion', 'Progress', 'Bounded waiting', 'Preemption'], answer: 3, explain: 'The three requirements are mutual exclusion, progress and bounded waiting. Preemption is not one of them.' },
+  ],
+};

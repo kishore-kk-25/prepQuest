@@ -1,0 +1,30 @@
+// Computer Networks question bank. Every answer is hand-checked.
+export default {
+  id: 'networks',
+  name: 'Computer Networks',
+  badge: 'CN',
+  color: '#c2410c',
+  blurb: 'OSI and TCP/IP, IP addressing, TCP vs UDP, DNS, HTTP and routing.',
+  practiceProvider: 'geeksforgeeks',
+  resources: [
+    { title: 'Cloudflare Learning Center', url: 'https://www.cloudflare.com/learning/', kind: 'Guides' },
+    { title: 'MDN: An overview of HTTP', url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP', kind: 'Docs' },
+  ],
+  questions: [
+    { section: 'Models & devices', topic: 'OSI model', q: 'How many layers does the OSI model have?', options: ['5', '7', '4', '6'], answer: 1, explain: 'Physical, Data link, Network, Transport, Session, Presentation, Application: 7 layers.' },
+    { section: 'Models & devices', topic: 'OSI layers', q: 'At which OSI layer does IP routing happen?', options: ['Data link', 'Transport', 'Network', 'Session'], answer: 2, explain: 'Layer 3, the Network layer, handles logical (IP) addressing and routing between networks.' },
+    { section: 'Transport & application', topic: 'TCP vs UDP', q: 'Which protocol guarantees ordered, reliable delivery?', options: ['UDP', 'IP', 'ICMP', 'TCP'], answer: 3, explain: 'TCP uses sequence numbers, acknowledgements and retransmission. UDP is faster but gives no guarantees.' },
+    { section: 'Transport & application', topic: 'DNS', q: 'What does DNS do?', options: ['Translates domain names into IP addresses', 'Encrypts web traffic', 'Assigns IP addresses to devices', 'Routes packets between networks'], answer: 0, explain: 'DNS resolves names like example.com to IP addresses. DHCP assigns addresses; TLS encrypts.' },
+    { section: 'Transport & application', topic: 'Ports', q: 'What is the default port for HTTPS?', options: ['80', '443', '21', '8080'], answer: 1, explain: 'HTTPS uses 443; plain HTTP uses 80; FTP uses 21.' },
+    { section: 'Addressing', topic: 'Subnetting', q: 'How many usable host addresses does a /24 IPv4 subnet have?', options: ['256', '255', '254', '252'], answer: 2, explain: 'A /24 leaves 8 host bits: 2⁸ = 256 addresses, minus the network and broadcast addresses = 254.' },
+    { section: 'Addressing', topic: 'MAC addresses', q: 'How long is a MAC address?', options: ['32 bits', '64 bits', '128 bits', '48 bits'], answer: 3, explain: 'A MAC address is 48 bits, written as six pairs of hex digits like 00:1A:2B:3C:4D:5E.' },
+    { section: 'Models & devices', topic: 'Switches', q: 'Which device forwards frames using MAC addresses at layer 2?', options: ['Hub', 'Switch', 'Router', 'Repeater'], answer: 1, explain: 'A switch learns which MAC is on which port. A router works with IP at layer 3; a hub just repeats signals.' },
+    { section: 'Transport & application', topic: 'TCP handshake', q: 'What is the order of the TCP three-way handshake?', options: ['SYN, SYN-ACK, ACK', 'ACK, SYN, SYN-ACK', 'SYN, ACK, FIN', 'SYN-ACK, SYN, ACK'], answer: 0, explain: 'Client sends SYN, server replies SYN-ACK, client confirms with ACK. Then data can flow.' },
+    { section: 'Addressing', topic: 'IPv6', q: 'How long is an IPv6 address?', options: ['32 bits', '48 bits', '64 bits', '128 bits'], answer: 3, explain: 'IPv6 addresses are 128 bits, compared with 32 bits for IPv4.' },
+    { section: 'Addressing', topic: 'ARP', q: 'ARP is used to find:', options: ['The IP address for a domain name', 'The MAC address for a known IP address', 'The fastest route', 'The port of a service'], answer: 1, explain: 'ARP broadcasts "who has IP x?" on the local network and the owner replies with its MAC address.' },
+    { section: 'Transport & application', topic: 'DHCP', q: 'Which protocol automatically assigns IP addresses to devices?', options: ['DNS', 'FTP', 'DHCP', 'SMTP'], answer: 2, explain: 'DHCP hands out an IP address, subnet mask, gateway and DNS server when a device joins the network.' },
+    { section: 'Transport & application', topic: 'HTTP status codes', q: 'What does HTTP status code 404 mean?', options: ['Server error', 'Unauthorised', 'Moved permanently', 'Not found'], answer: 3, explain: '4xx codes are client errors; 404 means the requested resource does not exist. 500 is a server error, 401 unauthorised, 301 moved.' },
+    { section: 'Transport & application', topic: 'Email protocols', q: 'Which protocol is used to send email between servers?', options: ['POP3', 'IMAP', 'SMTP', 'SNMP'], answer: 2, explain: 'SMTP sends mail. POP3 and IMAP are used by clients to read mail from a server.' },
+    { section: 'Models & devices', topic: 'ICMP', q: 'Which protocol does the ping command use?', options: ['TCP', 'UDP', 'ICMP', 'ARP'], answer: 2, explain: 'Ping sends ICMP Echo Request messages and waits for Echo Replies.' },
+  ],
+};

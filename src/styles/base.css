@@ -1,0 +1,94 @@
+/* ─────────────────────────────────────────────────────────────
+   Design tokens. Change the colours here to re-brand the app.
+   Light and dark themes are both handled by light-dark().
+   ───────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f4f7f2, #0c1714);
+  --ink: light-dark(#0f1f1b, #e8f1ec);
+  --muted: light-dark(#4d615a, #9fb5ad);
+  --card: light-dark(#ffffff, #13231f);
+  --line: light-dark(#dbe5df, #24392f);
+  --soft: light-dark(#eef7e6, #18291f);
+  --brand: #00463c;        /* deep green: hero, buttons */
+  --brand-2: #e6f5c8;      /* lime-white: highlights on green */
+  --coral: #ff6f59;        /* accent: play buttons, weak scores */
+  --ok: #2e9e6a;           /* good scores, done states */
+  --amber: #e0a526;        /* middling scores */
+  --radius: 18px;
+  --font: Inter, system-ui, sans-serif;
+  --display: "Inter Tight", Inter, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+:root[data-theme=light] { color-scheme: light; }
+:root[data-theme=dark] { color-scheme: dark; }
+
+* { box-sizing: border-box; min-width: 0; }
+html { scroll-padding-top: 80px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--font); overflow-x: clip; }
+h1, h2, h3, h4 { font-family: var(--display); line-height: 1.08; text-wrap: balance; margin: 0; }
+.h1 { font-size: clamp(26px, 3.6vw, 38px); }
+.h2 { font-size: clamp(21px, 2.6vw, 26px); }
+.h3 { font-size: 18px; margin: 22px 0 10px; }
+a { color: inherit; }
+p { margin: 0 0 10px; }
+
+/* layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px max(5vw, 16px) 64px; display: grid; gap: 20px; }
+.wrap.lift { margin-top: -72px; position: relative; }
+.band { padding: clamp(28px, 4vw, 56px) max(5vw, 16px); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 50px -26px rgba(0, 40, 30, .35); padding: clamp(20px, 3vw, 34px); }
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.row.between, .between { justify-content: space-between; }
+.row.end { align-items: flex-end; }
+.grow { flex: 1; }
+.hide { display: none !important; }
+
+/* text */
+.meta { color: var(--muted); font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.hint { color: var(--muted); font-size: 15px; margin: 6px 0 18px; }
+.note { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+.status { color: var(--muted); font-size: 14px; min-height: 22px; margin-top: 10px; }
+.err { color: var(--coral); }
+.loading { text-align: center; padding: 80px 16px; color: var(--muted); }
+
+/* forms */
+label { display: block; font-weight: 600; font-size: 14px; margin: 0 0 6px; }
+input, select, textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 44px; }
+textarea { min-height: 170px; resize: vertical; line-height: 1.5; }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #7cc4a8; outline-offset: 2px; }
+
+/* buttons */
+.btn { background: var(--brand); color: #fff; border: 0; border-radius: 12px; padding: 12px 22px; min-height: 48px; font: 600 16px var(--font); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn.ghost-light { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .35); }
+.btn.play { background: var(--coral); }
+.btn.sm { min-height: 40px; padding: 8px 14px; font-size: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.chip { border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; padding: 8px 14px; min-height: 40px; font: inherit; font-size: 14px; cursor: pointer; }
+.chip:hover, .chip.on { border-color: var(--ok); background: var(--soft); }
+.chip.static { cursor: default; min-height: 32px; padding: 4px 12px; }
+.pill { display: inline-grid; place-items: center; min-width: 44px; height: 26px; border-radius: 999px; font-weight: 700; font-size: 13px; color: #fff; padding: 0 10px; white-space: nowrap; }
+.spin { display: inline-block; width: 14px; height: 14px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* top bar + stepper */
+.topbar { background: var(--brand); color: #fff; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.topbar-in { max-width: 1120px; margin: 0 auto; padding: 10px max(5vw, 16px); display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.brand { font: 800 18px var(--display); margin-right: auto; }
+.stepper { display: flex; gap: 6px; flex-wrap: wrap; }
+.step { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 0; color: rgba(255, 255, 255, .7); font: 600 14px var(--font); padding: 6px 10px; border-radius: 999px; cursor: pointer; min-height: 40px; }
+.step span { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; border: 2px solid rgba(255, 255, 255, .4); font-size: 12px; }
+.step.now { background: rgba(255, 255, 255, .12); color: #fff; }
+.step.now span { background: var(--coral); border-color: var(--coral); }
+.step.past span { background: var(--ok); border-color: var(--ok); }
+.step:disabled { cursor: default; opacity: .55; }
+.ai-mode { font-size: 12px; color: var(--brand-2); border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; padding: 3px 10px; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+@media (max-width: 640px) {
+  .brand { width: 100%; }
+  .step { padding: 4px 6px; font-size: 13px; }
+  .ai-mode { display: none; }
+}

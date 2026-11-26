@@ -1,0 +1,30 @@
+// Object-Oriented Programming question bank. Every answer is hand-checked.
+export default {
+  id: 'oop',
+  name: 'Object-Oriented Programming',
+  badge: 'OOP',
+  color: '#b8336a',
+  blurb: 'Encapsulation, inheritance, polymorphism, SOLID and design patterns.',
+  practiceProvider: 'geeksforgeeks',
+  resources: [
+    { title: 'Refactoring.Guru design patterns', url: 'https://refactoring.guru/design-patterns', kind: 'Guide' },
+    { title: 'Oracle Java tutorial: OOP concepts', url: 'https://docs.oracle.com/javase/tutorial/java/concepts/', kind: 'Docs' },
+  ],
+  questions: [
+    { section: 'Core pillars', topic: 'Encapsulation', q: 'Bundling data with the methods that use it, and hiding internal state, is called:', options: ['Inheritance', 'Encapsulation', 'Polymorphism', 'Abstraction'], answer: 1, explain: 'Encapsulation keeps fields private and exposes behaviour through methods, so internals can change safely.' },
+    { section: 'Core pillars', topic: 'Method overloading', q: 'Method overloading (same name, different parameters) is an example of:', options: ['Runtime polymorphism', 'Encapsulation', 'Compile-time polymorphism', 'Inheritance'], answer: 2, explain: 'The compiler picks which overload to call from the argument types, so it is resolved at compile time.' },
+    { section: 'Core pillars', topic: 'Method overriding', q: 'A subclass providing its own version of a parent class method is called:', options: ['Overriding', 'Overloading', 'Encapsulation', 'Abstraction'], answer: 0, explain: 'Overriding replaces the parent\'s implementation; which version runs is decided at runtime from the object\'s actual type.' },
+    { section: 'Core pillars', topic: 'Abstract classes', q: 'Which is true of an abstract class?', options: ['All its methods must be abstract', 'It cannot have constructors', 'It cannot have fields', 'It cannot be instantiated directly'], answer: 3, explain: 'You cannot create an object of an abstract class; you subclass it. It can still have fields, constructors and concrete methods.' },
+    { section: 'Classes & inheritance', topic: 'Inheritance', q: 'Inheritance models which relationship?', options: ['has-a', 'is-a', 'uses-a', 'part-of'], answer: 1, explain: 'A Dog is an Animal: inheritance. A Car has an Engine: composition.' },
+    { section: 'Classes & inheritance', topic: 'Composition', q: 'Composition models which relationship?', options: ['is-a', 'inherits-from', 'has-a', 'overrides'], answer: 2, explain: 'Composition builds an object from other objects it owns: a Car has an Engine.' },
+    { section: 'Classes & inheritance', topic: 'Constructors', q: 'A constructor is:', options: ['A special method that runs when an object is created', 'A method that deletes objects', 'A static variable', 'An interface'], answer: 0, explain: 'Constructors initialise a new object\'s state; they share the class name in Java and C++.' },
+    { section: 'Core pillars', topic: 'Interfaces', q: 'In Java, how does a class get multiple inheritance of type?', options: ['By extending several classes', 'With the friend keyword', 'With templates', 'By implementing several interfaces'], answer: 3, explain: 'Java allows extending only one class but implementing many interfaces.' },
+    { section: 'Core pillars', topic: 'Access modifiers', q: 'Which access modifier is the most restrictive?', options: ['public', 'protected', 'private', 'default (package)'], answer: 2, explain: 'private members are visible only inside the class itself.' },
+    { section: 'Design', topic: 'SOLID: Single responsibility', q: 'What does the "S" in SOLID stand for?', options: ['Single Responsibility Principle', 'Static Typing Principle', 'Substitution Principle', 'Simple Design Principle'], answer: 0, explain: 'A class should have one reason to change: one responsibility.' },
+    { section: 'Design', topic: 'SOLID: Liskov substitution', q: 'What does the "L" in SOLID stand for?', options: ['Loose Coupling', 'Liskov Substitution Principle', 'Layered Design', 'Lazy Loading'], answer: 1, explain: 'Objects of a subclass should be usable anywhere the parent is expected, without breaking behaviour.' },
+    { section: 'Classes & inheritance', topic: 'Static members', q: 'Static members belong to:', options: ['Each object separately', 'Only the first object created', 'The class itself, shared by all objects', 'The parent class only'], answer: 2, explain: 'A static field has one copy per class, shared by every instance, and can be used without creating an object.' },
+    { section: 'Classes & inheritance', topic: 'Diamond problem', q: 'The "diamond problem" arises from:', options: ['Too many interfaces', 'Deep recursion', 'Private constructors', 'Multiple inheritance of implementation'], answer: 3, explain: 'If B and C both override a method from A and D inherits from both, which version does D get? C++ solves it with virtual inheritance.' },
+    { section: 'Design', topic: 'Singleton pattern', q: 'Which design pattern ensures a class has only one instance?', options: ['Factory', 'Singleton', 'Observer', 'Decorator'], answer: 1, explain: 'Singleton hides the constructor and exposes one shared instance, e.g. a configuration object.' },
+    { section: 'Design', topic: 'Loose coupling', q: 'Depending on abstractions (interfaces) rather than concrete classes mainly gives:', options: ['Loose coupling', 'Faster code', 'Less memory use', 'Tighter coupling'], answer: 0, explain: 'Code that depends on an interface can swap implementations (e.g. for tests) without changing: loose coupling, the D in SOLID.' },
+  ],
+};

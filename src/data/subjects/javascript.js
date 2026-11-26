@@ -1,0 +1,30 @@
+// JavaScript question bank. Every answer is hand-checked.
+export default {
+  id: 'javascript',
+  name: 'JavaScript',
+  badge: 'JS',
+  color: '#a68a00',
+  blurb: 'Types, scope, closures, the event loop, promises and arrays.',
+  practiceProvider: 'mdn',
+  resources: [
+    { title: 'javascript.info: the modern JS tutorial', url: 'https://javascript.info/', kind: 'Tutorial' },
+    { title: 'MDN JavaScript guide', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide', kind: 'Docs' },
+  ],
+  questions: [
+    { section: 'Types & equality', topic: 'typeof', q: 'What does typeof null return?', options: ['"null"', '"undefined"', '"object"', '"number"'], answer: 2, explain: 'A historic bug in the first JavaScript engine: null was tagged as an object, and it was never changed.' },
+    { section: 'Types & equality', topic: 'Floating point numbers', q: 'What is the result of 0.1 + 0.2 === 0.3?', options: ['false', 'true', 'TypeError', 'undefined'], answer: 0, explain: 'Numbers are binary floating point, so 0.1 + 0.2 is 0.30000000000000004. Compare with a tolerance instead.' },
+    { section: 'Scope & functions', topic: 'let vs var', q: 'How does let differ from var?', options: ['let is function-scoped', 'let is block-scoped', 'let cannot be reassigned', 'There is no difference'], answer: 1, explain: 'let lives only inside its { } block; var is scoped to the whole function. const is the one that cannot be reassigned.' },
+    { section: 'Types & equality', topic: 'Type coercion', q: 'What is [] + []?', options: ['[]', '0', 'undefined', '"" (an empty string)'], answer: 3, explain: '+ turns both arrays into strings; an empty array becomes "", and "" + "" is "".' },
+    { section: 'Types & equality', topic: 'Type coercion', q: 'What does console.log(1 + "2") print?', options: ['3', 'NaN', '12', 'An error'], answer: 2, explain: 'If either side of + is a string, JavaScript concatenates: "1" + "2" = "12".' },
+    { section: 'Types & equality', topic: 'Primitive types', q: 'Which of these is NOT a primitive type?', options: ['string', 'symbol', 'bigint', 'object'], answer: 3, explain: 'The primitives are string, number, bigint, boolean, undefined, symbol and null. Objects (including arrays) are reference types.' },
+    { section: 'Async & arrays', topic: 'Promise.all', q: 'When does Promise.all([...]) reject?', options: ['As soon as any one promise rejects', 'Only if all promises reject', 'Never', 'After a timeout'], answer: 0, explain: 'Promise.all fails fast on the first rejection. Use Promise.allSettled to wait for every result.' },
+    { section: 'Async & arrays', topic: 'Event loop', q: 'console.log("A"); setTimeout(() => console.log("B"), 0); Promise.resolve().then(() => console.log("C")); console.log("D"); What is printed?', options: ['A B C D', 'A D B C', 'A D C B', 'A C D B'], answer: 2, explain: 'Synchronous code runs first (A, D). Then the microtask queue (promise: C), then the task queue (setTimeout: B).' },
+    { section: 'Types & equality', topic: 'Equality', q: 'How does === differ from ==?', options: ['=== converts types before comparing', '=== compares value and type, with no conversion', 'They are identical', '=== only works on numbers'], answer: 1, explain: '== coerces types ("1" == 1 is true); === does not ("1" === 1 is false).' },
+    { section: 'Scope & functions', topic: 'Closures', q: 'A closure is:', options: ['A function that remembers variables from the scope where it was created', 'A way to end a loop', 'A private class', 'A syntax error'], answer: 0, explain: 'Inner functions keep access to outer variables even after the outer function returns, e.g. counters and private state.' },
+    { section: 'Async & arrays', topic: 'Array methods', q: 'Which array method returns a new array with every item transformed?', options: ['forEach', 'reduce', 'map', 'find'], answer: 2, explain: 'map(fn) returns a new array of fn(item). forEach returns undefined; filter keeps some items; reduce returns one value.' },
+    { section: 'Scope & functions', topic: 'this in arrow functions', q: 'In an arrow function, this:', options: ['Always refers to window', 'Is taken from the surrounding scope', 'Refers to the function itself', 'Is always undefined'], answer: 1, explain: 'Arrow functions have no own this; they use the this of the place they were defined.' },
+    { section: 'Scope & functions', topic: 'const and objects', q: 'const obj = { a: 1 }; obj.a = 2; What happens?', options: ['TypeError', 'SyntaxError', 'obj is frozen, a stays 1', 'obj.a becomes 2'], answer: 3, explain: 'const stops reassigning the variable, not changing the object it points to. Use Object.freeze to block changes.' },
+    { section: 'Async & arrays', topic: 'Array methods', q: 'Which method removes the last element of an array and returns it?', options: ['shift', 'pop', 'slice(-1)', 'splice(0, 1)'], answer: 1, explain: 'pop removes from the end; shift removes from the start; slice(-1) copies without removing.' },
+    { section: 'Scope & functions', topic: 'Hoisting', q: 'console.log(x); var x = 5; What is printed?', options: ['5', 'ReferenceError', 'undefined', 'null'], answer: 2, explain: 'var declarations are hoisted and initialised to undefined; the assignment happens later. With let you would get a ReferenceError.' },
+  ],
+};

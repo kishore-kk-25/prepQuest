@@ -1,0 +1,31 @@
+// DBMS & SQL question bank. Every answer is hand-checked.
+export default {
+  id: 'dbms',
+  name: 'DBMS & SQL',
+  badge: 'SQL',
+  color: '#7b3fe4',
+  blurb: 'Keys, normalisation, joins, transactions and everyday SQL queries.',
+  practiceProvider: 'geeksforgeeks',
+  resources: [
+    { title: 'SQLBolt: interactive SQL lessons', url: 'https://sqlbolt.com/', kind: 'Interactive' },
+    { title: 'W3Schools SQL tutorial', url: 'https://www.w3schools.com/sql/', kind: 'Tutorial' },
+    { title: 'PostgreSQL documentation', url: 'https://www.postgresql.org/docs/', kind: 'Docs' },
+  ],
+  questions: [
+    { section: 'SQL queries', topic: 'GROUP BY and HAVING', q: 'Which SQL clause filters groups after aggregation?', options: ['WHERE', 'ORDER BY', 'HAVING', 'GROUP BY'], answer: 2, explain: 'WHERE filters rows before grouping; HAVING filters the groups after GROUP BY, so it can use aggregates like COUNT(*) > 5.' },
+    { section: 'Keys & design', topic: 'Primary keys', q: 'Which statement about a primary key is true?', options: ['It uniquely identifies each row and cannot be NULL', 'It can contain duplicates', 'It must be a number', 'It always links to another table'], answer: 0, explain: 'A primary key must be unique and NOT NULL. It can be text or a combination of columns.' },
+    { section: 'Keys & design', topic: 'Foreign keys', q: 'A foreign key is used to:', options: ['Speed up every query', 'Encrypt a column', 'Link a row to the primary key of another table', 'Make a column unique'], answer: 2, explain: 'A foreign key references a primary (or unique) key in another table, enforcing referential integrity.' },
+    { section: 'Keys & design', topic: 'Normal forms', q: 'Which normal form removes partial dependencies on a composite key?', options: ['1NF', '3NF', 'BCNF', '2NF'], answer: 3, explain: '2NF requires that every non-key column depends on the whole key, not just part of a composite key.' },
+    { section: 'Transactions', topic: 'ACID properties', q: 'In ACID, what does the "I" stand for?', options: ['Integrity', 'Isolation', 'Indexing', 'Independence'], answer: 1, explain: 'Atomicity, Consistency, Isolation, Durability. Isolation means concurrent transactions do not see each other\'s half-done work.' },
+    { section: 'SQL queries', topic: 'Joins', q: 'Which join returns all rows from the left table plus matching rows from the right table?', options: ['INNER JOIN', 'RIGHT JOIN', 'CROSS JOIN', 'LEFT JOIN'], answer: 3, explain: 'LEFT JOIN keeps every left row; where there is no match, the right-side columns are NULL.' },
+    { section: 'SQL queries', topic: 'DDL vs DML', q: 'Which DDL command removes all rows from a table but keeps its structure?', options: ['DELETE', 'DROP', 'TRUNCATE', 'REMOVE'], answer: 2, explain: 'TRUNCATE (DDL) empties the table quickly and keeps its structure. DELETE is DML and removes rows one by one; DROP removes the table itself.' },
+    { section: 'SQL queries', topic: 'Aggregates and NULL', q: 'How does COUNT(column) differ from COUNT(*)?', options: ['It ignores NULL values in that column', 'It counts only distinct values', 'It is always faster', 'It counts columns, not rows'], answer: 0, explain: 'COUNT(*) counts every row; COUNT(column) counts only rows where that column is not NULL.' },
+    { section: 'Keys & design', topic: 'Indexes', q: 'An index on a column mainly speeds up:', options: ['Inserts', 'Lookups and searches on that column', 'Dropping tables', 'Backups'], answer: 1, explain: 'An index (often a B-tree) lets the database find matching rows without scanning the whole table. It makes writes slightly slower.' },
+    { section: 'Keys & design', topic: 'Candidate keys', q: 'What is a minimal set of attributes that uniquely identifies a row called?', options: ['Super key', 'Foreign key', 'Candidate key', 'Composite attribute'], answer: 2, explain: 'A super key is any set that identifies rows; a candidate key is a minimal super key. One candidate key is chosen as the primary key.' },
+    { section: 'SQL queries', topic: 'DISTINCT', q: 'Which keyword returns only unique values in a SELECT?', options: ['DISTINCT', 'UNIQUE', 'DIFFERENT', 'SINGLE'], answer: 0, explain: 'SELECT DISTINCT city FROM users returns each city once.' },
+    { section: 'Transactions', topic: 'Isolation anomalies', q: 'Reading data another transaction has changed but not yet committed is called a:', options: ['Phantom read', 'Lost update', 'Non-repeatable read', 'Dirty read'], answer: 3, explain: 'A dirty read sees uncommitted changes that might be rolled back. The READ COMMITTED level prevents it.' },
+    { section: 'SQL queries', topic: 'ORDER BY and LIMIT', q: 'What does SELECT name FROM emp ORDER BY salary DESC LIMIT 1 return?', options: ['The lowest-paid employee', 'The highest-paid employee', 'A random employee', 'All employee names'], answer: 1, explain: 'DESC sorts salaries from highest to lowest, and LIMIT 1 keeps only the first row: the top earner.' },
+    { section: 'SQL queries', topic: 'Aggregates and NULL', q: 'What does AVG(salary) do with NULL salaries?', options: ['Treats them as 0', 'Returns NULL for the whole result', 'Ignores them', 'Throws an error'], answer: 2, explain: 'Aggregate functions other than COUNT(*) skip NULLs, so AVG divides by the number of non-NULL salaries.' },
+    { section: 'SQL queries', topic: 'Views', q: 'A view in SQL is:', options: ['A physical copy of a table', 'A virtual table defined by a stored query', 'A type of index', 'A backup file'], answer: 1, explain: 'A view stores a query, not data. Selecting from it runs the query (unless it is a materialised view).' },
+  ],
+};

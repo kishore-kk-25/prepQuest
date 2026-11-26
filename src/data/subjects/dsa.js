@@ -1,0 +1,31 @@
+// Data Structures & Algorithms question bank. Every answer is hand-checked.
+export default {
+  id: 'dsa',
+  name: 'Data Structures & Algorithms',
+  badge: 'DSA',
+  color: '#2f6fdf',
+  blurb: 'Complexity, arrays, trees, graphs, sorting and dynamic programming.',
+  practiceProvider: 'leetcode',
+  resources: [
+    { title: 'VisuAlgo: watch algorithms animate', url: 'https://visualgo.net/en', kind: 'Visual' },
+    { title: 'NeetCode roadmap', url: 'https://neetcode.io/roadmap', kind: 'Roadmap' },
+    { title: 'LeetCode problems', url: 'https://leetcode.com/problemset/', kind: 'Practice' },
+  ],
+  questions: [
+    { section: 'Algorithms', topic: 'Binary search', q: 'What is the time complexity of binary search on a sorted array of n elements?', options: ['O(n)', 'O(log n)', 'O(n log n)', 'O(1)'], answer: 1, explain: 'Each step halves the search range: n, n/2, n/4 … so it takes about log₂ n steps.' },
+    { section: 'Linear structures', topic: 'Stacks', q: 'Which data structure follows Last In, First Out (LIFO)?', options: ['Queue', 'Heap', 'Stack', 'Linked list'], answer: 2, explain: 'A stack adds and removes from the same end (the top), so the last item pushed is the first popped.' },
+    { section: 'Algorithms', topic: 'Quicksort', q: 'What is the worst-case time complexity of quicksort?', options: ['O(n²)', 'O(n log n)', 'O(n)', 'O(log n)'], answer: 0, explain: 'If the pivot is always the smallest or largest element (e.g. sorted input with a first-element pivot), partitions are size n−1 each time: n + (n−1) + … = O(n²).' },
+    { section: 'Algorithms', topic: 'Merge sort', q: 'Which sorting algorithm is stable and O(n log n) in the worst case?', options: ['Quick sort', 'Heap sort', 'Selection sort', 'Merge sort'], answer: 3, explain: 'Merge sort always splits in half (log n levels) and merges in O(n) per level, and merging keeps equal items in order, so it is stable.' },
+    { section: 'Linear structures', topic: 'Array indexing', q: 'What is the time to access an array element by its index?', options: ['O(n)', 'O(1)', 'O(log n)', 'O(n²)'], answer: 1, explain: 'Arrays are contiguous, so the address is base + index × size: one calculation, O(1).' },
+    { section: 'Trees, graphs & heaps', topic: 'Breadth-first search', q: 'Breadth-first search (BFS) on a graph typically uses which data structure?', options: ['Stack', 'Hash table', 'Priority queue', 'Queue'], answer: 3, explain: 'BFS visits nodes level by level, first-in first-out, which is exactly what a queue gives. DFS uses a stack.' },
+    { section: 'Trees, graphs & heaps', topic: 'Binary search trees', q: 'An inorder traversal of a binary search tree visits the keys in which order?', options: ['Random order', 'Reverse level order', 'Sorted ascending order', 'Sorted descending order'], answer: 2, explain: 'Inorder is left, node, right. In a BST everything left is smaller and everything right is larger, so you get ascending order.' },
+    { section: 'Linear structures', topic: 'Hash tables', q: 'What is the average-case time to look up a key in a hash table?', options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'], answer: 0, explain: 'A good hash function sends the key straight to its bucket, so on average a lookup is constant time. The worst case (many collisions) is O(n).' },
+    { section: 'Trees, graphs & heaps', topic: 'Tree properties', q: 'How many edges does a tree with n nodes have?', options: ['n', 'n + 1', 'n − 1', '2n'], answer: 2, explain: 'Every node except the root has exactly one edge to its parent, so there are n − 1 edges.' },
+    { section: 'Trees, graphs & heaps', topic: 'Dijkstra\'s algorithm', q: 'Which algorithm design technique does Dijkstra\'s shortest-path algorithm use?', options: ['Divide and conquer', 'Backtracking', 'Greedy', 'Brute force'], answer: 2, explain: 'At each step Dijkstra picks the unvisited node with the smallest known distance and fixes it: a greedy choice that is proven safe for non-negative edge weights.' },
+    { section: 'Algorithms', topic: 'Memoization', q: 'Computing Fibonacci numbers with memoization is an example of:', options: ['Greedy', 'Dynamic programming', 'Backtracking', 'Divide and conquer'], answer: 1, explain: 'Fibonacci has overlapping subproblems; storing each result once and reusing it is dynamic programming (top-down).' },
+    { section: 'Linear structures', topic: 'Linked list operations', q: 'What is the time to insert a node at the head of a singly linked list?', options: ['O(n)', 'O(log n)', 'O(n²)', 'O(1)'], answer: 3, explain: 'Point the new node at the current head and move the head pointer: two pointer updates, no traversal, O(1).' },
+    { section: 'Trees, graphs & heaps', topic: 'Heaps', q: 'In a min-heap, the root node holds:', options: ['The smallest element', 'The largest element', 'The median', 'The last inserted element'], answer: 0, explain: 'In a min-heap every parent is ≤ its children, so the minimum always sits at the root.' },
+    { section: 'Linear structures', topic: 'Cycle detection', q: 'Which technique detects a cycle in a linked list using O(1) extra space?', options: ['A hash set of visited nodes', 'Sorting the nodes', 'Floyd\'s slow and fast pointers', 'Recursion'], answer: 2, explain: 'Move one pointer by 1 and another by 2. If there is a cycle the fast one eventually meets the slow one. No extra memory needed, unlike a hash set.' },
+    { section: 'Algorithms', topic: 'Recursion and the call stack', q: 'What is the space complexity of a recursive factorial(n), counting the call stack?', options: ['O(1)', 'O(log n)', 'O(n²)', 'O(n)'], answer: 3, explain: 'factorial(n) calls factorial(n−1) … down to 1, so n frames sit on the call stack at once: O(n) space.' },
+  ],
+};
