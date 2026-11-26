@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PrepQuest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+  <link rel="stylesheet" href="src/styles/player.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-in">
+      <b id="brand" class="brand">PrepQuest</b>
+      <nav id="stepper" class="stepper" aria-label="Progress"></nav>
+      <span id="aiMode" class="ai-mode"></span>
+    </div>
+  </header>
+
+  <main id="view"><p class="loading">Loading…</p></main>
+
+  <noscript>This app needs JavaScript turned on.</noscript>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
