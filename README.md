@@ -3,6 +3,12 @@
 Take a **role-based interview** or a **subject-based test**, get every answer taught by an animated cartoon tutor (**Tuty**), then follow a **personal study roadmap** with links to YouTube, courses and practice sites.
 
 **Live demo (GitHub Pages):** `https://kishore-kk-25.github.io/prepquest/` · see [Hosting](#hosting)
+## 🚀 Live demos
+
+| Demo | What you get | Link |
+|---|---|---|
+| **GitHub Pages** | Open to everyone. All 7 subject tests, Tuty's lessons, roadmap and study links. Role interviews use built-in questions (no AI). | [kishore-kk-25.github.io/prepQuest](https://kishore-kk-25.github.io/prepQuest/) |
+| **Full AI version** (hosted on claude.ai) | AI-written role interviews, AI scoring, richer lessons and roadmaps, Tuty's voice and speak-your-answer. May ask you to sign in to Claude. | [Open full version](https://claude.ai/artifact/EKCHbiqCigcXsrwBpj6iuD) |
 
 > App name, tutor name and colours all live in one file: [`src/config.js`](src/config.js). See [docs/CUSTOMIZE.md](docs/CUSTOMIZE.md).
 
