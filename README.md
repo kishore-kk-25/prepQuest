@@ -2,7 +2,7 @@
 
 Take a **role-based interview** or a **subject-based test**, get every answer taught by an animated cartoon tutor (**Tuty**), then follow a **personal study roadmap** with links to YouTube, courses and practice sites.
 
-**Live demo (GitHub Pages):** `https://<your-username>.github.io/prepquest/` · see [Hosting](#hosting)
+**Live demo (GitHub Pages):** `https://kishore-kk-25.github.io/prepquest/` · see [Hosting](#hosting)
 
 > App name, tutor name and colours all live in one file: [`src/config.js`](src/config.js). See [docs/CUSTOMIZE.md](docs/CUSTOMIZE.md).
 
